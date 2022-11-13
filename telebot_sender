@@ -1,0 +1,6 @@
+# put file to /etc/cron.d/telebot_sender
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+0 13 * * FRI ubuntu python3 /home/ubuntu/telegram_bot/sender.py send_offer 1>> /home/ubuntu/telegram_bot/sender.log 2>&1
+0 13 * * MON ubuntu python3 /home/ubuntu/telegram_bot/sender.py send_meet 1>> /home/ubuntu/telegram_bot/sender.log 2>&1
