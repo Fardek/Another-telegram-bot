@@ -48,6 +48,32 @@ ubuntu@avelmatkin:~/telegram_bot$ while :; do ./run.py 1>> run.log 2>&1 && sleep
 И запускать это всё в сессии tmux. (надо переделать на юнит systemd)
 
 ## Для отправки клиентам нужной ссылки на мероприятие.
+Используй скрипт sender.py из этого же проекта.
+У него есть help:
 ```
 python3 ./sender.py --help
+
+usage: sender.py [-h] {send_meet,send_custom_message} ...
+
+Рассылка
+
+positional arguments:
+  {send_meet,send_custom_message}
+                        use only one
+    send_meet           Send meeting link
+    send_custom_message
+                        Send custom message for all from "go"-group
+
+optional arguments:
+  -h, --help            show this help message and exit
 ```
+
+Совершить рассылку можно так:
+```
+fardek@fardek-qq:~/hobby/Another-telegram-bot$ python3 ./sender.py send_meet
+14-Nov-22 11:34:25 INFO: meet_able: []
+14-Nov-22 11:34:25 INFO: people able meet: {}
+14-Nov-22 11:34:25 WARNING: Никого согласных на встречу не нашлось.
+```
+В данном случае у нас нет согластных на рассылку клиентов, поэтому вернулись пустые множества.
+
